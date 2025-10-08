@@ -1,5 +1,5 @@
 <h1>ExpNo 1 :Developing AI Agent with PEAS Description</h1>
-<h3>Name: Dhana Lakshmi A </h3>
+<h3>Name: DHANA LAKSHMI A </h3>
 <h3>Register Number: 212223040033</h3>
 
 <h3>AIM:</h3>
