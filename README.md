@@ -1,12 +1,10 @@
 <h1>ExpNo 1 :Developing AI Agent with PEAS Description</h1>
-<h3>Name: Saravanan N</h3>
-<h3>Register Number/Staff Id: TSML006</h3>
-
+<h3>Name: Dhana Lakshmi A </h3>
+<h3>Register Number: 212223040033</h3>
 
 <h3>AIM:</h3>
-<br>
 <p>To find the PEAS description for the given AI problem and develop an AI agent.</p>
-<br>
+
 <h3>Theory</h3>
 <h3>Medicine prescribing agent:</h3>
 <p>Such this agent prescribes medicine for fever (greater than 98.5 degrees) which we consider here as unhealthy, by the user temperature input, and another environment is rooms in the hospital (two rooms). This agent has to consider two factors one is room location and an unhealthy patient in a random room, the agent has to move from one room to another to check and treat the unhealthy person. The performance of the agent is calculated by incrementing performance and each time after treating in one room again it has to check another room so that the movement causes the agent to reduce its performance. Hence, agents prescribe medicine to unhealthy.</p>
@@ -40,3 +38,51 @@
 <p>Treat unhealthy patients in each room. And check for the unhealthy patients in random room</p>
 <h3>STEP 5:</h3>
 <p>Measure the performance parameters: For each treatment performance incremented, for each movement performance decremented</p>
+
+<H3>PROGRAM</H3>
+<pre><code>
+import random
+
+class MedicinePrescribingAgent:
+    def __init__(self):
+        self.rooms = {"Room 1": random.randint(97, 101),
+                      "Room 2": random.randint(97, 101)}
+        self.location = "Room 1"
+        self.performance = 0
+
+    def move_to(self, room):
+        if self.location != room:
+            self.location = room
+            self.performance -= 1
+
+    def check_and_treat(self):
+        if self.rooms[self.location] > 98.5:
+            self.rooms[self.location] = 98.0
+            self.performance += 10
+
+    def perform_action(self, action):
+        if action in self.rooms:
+            self.move_to(action)
+        elif action == "treat":
+            self.check_and_treat()
+
+    def print_status(self):
+        print(f"Location: {self.location}, Room Status: {self.rooms}")
+
+agent = MedicinePrescribingAgent()
+agent.perform_action("Room 1")
+agent.print_status()
+agent.perform_action("treat")
+agent.print_status()
+agent.perform_action("Room 2")
+agent.print_status()
+agent.perform_action("treat")
+agent.print_status()
+</code></pre>
+
+<H3>OUTPUT</H3>
+
+<img width="633" height="96" alt="image" src="https://github.com/user-attachments/assets/e022f2b0-d204-4294-a447-a1ea06e383a0" />
+
+<H3>RESULT</H3>
+Therefore, PEAS description of the given AI problem is found and an AI agent is developed successfully.
